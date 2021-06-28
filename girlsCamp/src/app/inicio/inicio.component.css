@@ -1,0 +1,21 @@
+
+.trending{
+    background-color: #FAABC2;
+}
+
+.feed{
+    background-color: #FFEBF1;
+}
+
+.containerPerfil{
+    margin-left: 5px;
+    justify-content: end;
+}
+
+.containerPosts{
+    margin-right: 5px;
+}
+
+.marginLeft{
+    margin-left: 10px;
+}
