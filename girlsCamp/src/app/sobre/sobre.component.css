@@ -1,0 +1,56 @@
+body {
+    margin: 0 auto;
+    height: 100vh;
+}
+
+.content {
+    display: flex;
+    margin: 0 auto;
+    padding: 0 !important;
+    width: 100%;
+}
+
+.imageSobre { 
+    margin-top: 4rem;
+    margin-left: 5rem;
+    width: 20vw;
+}
+
+.imageSobre img {
+    position: relative;
+}
+
+.sobreText {
+    width: 100vw;
+    height: 80vh;
+    background-color: #FFC7D8;
+}
+
+.sobreText h1 {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.descricao {
+    margin-left: 12rem;
+    margin-right: 2rem;
+}
+
+.descricao h1 {
+    font-family: 'Roboto', sans-serif;
+}
+
+.descricao p {
+    font-family: 'Roboto', sans-serif;
+}
+
+.circulos {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.circulos img {
+    max-width: 20px;
+    margin: 20px;
+}
