@@ -1,0 +1,20 @@
+.bg {
+    background-color: #f286fc;
+  }
+  .border {
+    border-color: #f286fc;
+  }
+  
+  .redesSociais li {
+    list-style: none !important;
+  }
+  .redesSociais li a {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .imgSize {
+    width: 200px;
+  }
+  .row {
+    margin-top: 20px;
+  }

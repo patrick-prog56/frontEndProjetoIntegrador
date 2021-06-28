@@ -7,6 +7,7 @@ import { MenuComponent } from './menu/menu.component';
 import { RodapeComponent } from './rodape/rodape.component';
 <<<<<<< HEAD
 import { SobreComponent } from './sobre/sobre.component';
+import { ContatoComponent } from './contato/contato.component';
 =======
 import { InicioComponent } from './inicio/inicio.component';
 >>>>>>> fca40ab5925086c372c3028f1910a3da4f218e83
@@ -17,7 +18,8 @@ import { InicioComponent } from './inicio/inicio.component';
     MenuComponent,
     RodapeComponent,
 <<<<<<< HEAD
-    SobreComponent
+    SobreComponent,
+ContatoComponent
 =======
     InicioComponent
 >>>>>>> fca40ab5925086c372c3028f1910a3da4f218e83
