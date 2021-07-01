@@ -5,24 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { RodapeComponent } from './rodape/rodape.component';
-<<<<<<< HEAD
 import { SobreComponent } from './sobre/sobre.component';
 import { ContatoComponent } from './contato/contato.component';
-=======
 import { InicioComponent } from './inicio/inicio.component';
->>>>>>> fca40ab5925086c372c3028f1910a3da4f218e83
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     RodapeComponent,
-<<<<<<< HEAD
     SobreComponent,
-ContatoComponent
-=======
+  ContatoComponent,
     InicioComponent
->>>>>>> fca40ab5925086c372c3028f1910a3da4f218e83
   ],
   imports: [
     BrowserModule,
