@@ -5,12 +5,14 @@ import { ContatoComponent } from './contato/contato.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { LoginComponent } from './login/login.component';
 import { SobreComponent } from './sobre/sobre.component';
+import { TemaComponent } from './tema/tema.component';
 
 const routes: Routes = [
   {path:'', redirectTo: 'inicio',pathMatch: 'full'},
   {path:'login', component: LoginComponent},
   {path:'cadastro', component: CadastroComponent},
-  {path:'inicio', component: InicioComponent}
+  {path:'inicio', component: InicioComponent},
+  {path: 'tema', component: TemaComponent}
  
 ];
 

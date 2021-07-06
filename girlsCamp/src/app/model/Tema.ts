@@ -4,7 +4,7 @@ export class Tema{
 
     public id: number
     public nomeTema: string
-    public descricaoTema: string
-    public palavrasChaveTema: string
+    public descricao: string
+    public palavrasChave: string
     public postagem: Postagem[]
 }

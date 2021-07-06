@@ -14,6 +14,8 @@ import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { TemaComponent } from './tema/tema.component';
+import { PostagemComponent } from './postagem/postagem.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { FormsModule } from '@angular/forms';
     ContatoComponent,
     InicioComponent,
     LoginComponent,
-    CadastroComponent
+    CadastroComponent,
+    TemaComponent,
+    PostagemComponent
   ],
   imports: [
     BrowserModule,

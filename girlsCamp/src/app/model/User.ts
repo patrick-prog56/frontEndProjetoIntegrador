@@ -3,12 +3,12 @@ import { Postagem } from "./Postagem"
 export class User {
 
     public id: number
-    public nomeCompleto: string
+    public nome: string
     public email: string
     public usuario: string
     public senha: string
-    public pfSaude: string
-    public numRegistro: string
+    public tipoUsuario: string
+    public numRegistro: number
     public postagem: Postagem[]
 
 

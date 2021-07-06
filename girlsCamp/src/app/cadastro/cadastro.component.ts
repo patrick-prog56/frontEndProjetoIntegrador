@@ -1,4 +1,4 @@
-import { R3TargetBinder } from '@angular/compiler';
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../model/User';
@@ -35,12 +35,13 @@ export class CadastroComponent implements OnInit {
     }
 
     cadastrar(){
-      this.user.pfSaude=this.tipoUsuario
+      this.user.tipoUsuario=this.tipoUsuario
       if (this.user.senha!=this.confirmSenha) {
         alert('As senhas estão incorretas')
         
       }
       else{
+        console.log('para aqui')
       this.auth.cadastrar(this.user).subscribe((resp:User)=>{
         this.user=resp
         this.router.navigate(['/login'])
