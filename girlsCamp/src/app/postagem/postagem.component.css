@@ -1,0 +1,30 @@
+.trending {
+  background-color: #faabc2;
+}
+.card-header {
+  background-color: #e298ad;
+}
+.card-footer {
+  background-color: #e298ad;
+}
+
+.feed {
+  background-color: #ffebf1;
+}
+
+.containerPerfil {
+  margin-left: 5px;
+  justify-content: end;
+}
+
+.containerPosts {
+  margin-right: 5px;
+}
+
+.marginLeft {
+  margin-left: 10px;
+}
+
+.tamContainer {
+  width: 90vw;
+}

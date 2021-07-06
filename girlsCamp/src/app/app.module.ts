@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HashLocationStrategy} from '@angular/common';
+import { HashLocationStrategy } from '@angular/common';
 import { LocationStrategy } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,13 +9,12 @@ import { MenuComponent } from './menu/menu.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { SobreComponent } from './sobre/sobre.component';
 import { ContatoComponent } from './contato/contato.component';
-import { InicioComponent } from './inicio/inicio.component';
+import { PostagemComponent } from './postagem/postagem.component';
 import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { TemaComponent } from './tema/tema.component';
-import { PostagemComponent } from './postagem/postagem.component';
 
 @NgModule({
   declarations: [
@@ -24,22 +23,17 @@ import { PostagemComponent } from './postagem/postagem.component';
     RodapeComponent,
     SobreComponent,
     ContatoComponent,
-    InicioComponent,
+
     LoginComponent,
     CadastroComponent,
     TemaComponent,
-    PostagemComponent
+    PostagemComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule
-  ],
- /* providers: [
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  /* providers: [
     provide: LocationStrategy,
     useClass: HashLocationStrategy
   ],*/
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

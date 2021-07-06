@@ -7,38 +7,31 @@ import { AuthService } from '../service/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  userLogin: UserLogin = new UserLogin();
 
-  userLogin: UserLogin = new UserLogin()
-
-  constructor(
-    private auth: AuthService,
-    private router: Router
-  ) { }
+  constructor(private auth: AuthService, private router: Router) {}
 
   ngOnInit() {
-    window.scroll(0, 0)
-
+    window.scroll(0, 0);
   }
 
   entrar() {
-    this.auth.entrar(this.userLogin).subscribe((resp: UserLogin) => {
-      this.userLogin = resp
-      environment.token = this.userLogin.token
-      environment.nome = this.userLogin.nome
-      environment.id = this.userLogin.id
-      this.router.navigate(['/inicio'])
-    }, erro => {
-      if (erro.status == 500) {
-        alert("Ops! Seu usuário ou senha estão incorretos")
-
+    this.auth.entrar(this.userLogin).subscribe(
+      (resp: UserLogin) => {
+        this.userLogin = resp;
+        environment.token = this.userLogin.token;
+        environment.nome = this.userLogin.nome;
+        environment.id = this.userLogin.id;
+        this.router.navigate(['/postagem']);
+      },
+      (erro) => {
+        if (erro.status == 500) {
+          alert('Ops! Seu usuário ou senha estão incorretos');
+        }
       }
-    }
-    )
+    );
   }
 }
-
-
-
