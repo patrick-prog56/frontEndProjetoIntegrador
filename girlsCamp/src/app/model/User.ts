@@ -11,7 +11,4 @@ export class User {
     public numRegistro: number
     public postagem: Postagem[]
 
-
-
-
 }

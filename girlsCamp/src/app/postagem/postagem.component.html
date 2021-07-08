@@ -14,15 +14,13 @@
       <div class="col-8 feed">
         <h2>Posts-Forum</h2>
 
-        <div
-          class="card text-center mb-3 mt-3" *ngFor="let postagem of listaPostagem">
+        <div class="card text-center mb-3 mt-3" *ngFor="let postagem of listaPostagem">
           <div class="card-header">
             by:{{ postagem.usuario }}
           </div>
           <div class="card-body">
-            <h5 class="card-title">{{ postagem.tema.nomeTema }}</h5>
+            <h5 class="card-title">{{ postagem.tema }}</h5>
             <p class="card-text">{{ postagem.conteudoPostagem }}</p>
-            <a href="#" class="btn btn-outline-danger">Emergência</a>
           </div>
           <div class="card-footer text-dark">
             {{ postagem.criadoEm | date: 'dd/MM/yyyy'}} às {{postagem.criadoEm | date: 'HH:mm'}}
@@ -30,43 +28,71 @@
         </div>
       </div>
 
-      <div class="col-4 feed">
-        <h2>Perfil</h2>
-        <p>Nome</p>
-        <hr />
-        <h2>Posts</h2>
-        <button class="btn btn-outline-danger mr-2" data-bs-toggle="modal" data-bs-target="#novaPostagem">Nova postagem</button>
+      <!-- Perfil -->
+        <div class="col-4 feed">
+          <div class="container mt-4 d-flex justify-content-center">
+            <div class="card" style="width: 18rem">
+              <img class="card-img-top" src="../../assets/img/perfil.jpg" alt="Imagem de perfil" />
+              <div class="card-body">
+                <h5 class="card-title text-center">nomee</h5>
+                <ul class="list-group list-group-flush">
+                  <hr />
+                  <li class="list-group-item text-muted text-center">
+                    Seja bem-vinda, aqui é um espaço de acolhimento seguro para
+                    você!
+                  </li>
+                  <li class="list-group-item text-muted text-center mt-3">
+                    A igualdade de gênero não é apenas um direito humano
+                    fundamental, mas a base necessária para a construção de um
+                    mundo sustentável.
+                    <hr />
+                  </li>
+                </ul>
+              </div>
+              <div class="container d-flex justify-content-center mt-0">
+                <div class="card-body align-itens-center">
+                  <a href="https://api.whatsapp.com/send?phone=5511995926692&text=%20Precisa de ajuda?" target="_blank">
+                    <button class="btn btn-outline-danger">Emergência</button>
+                  </a>
+                  <hr />
+                  <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#novaPostagem">
+                    Nova postagem
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /Perfil -->
+
+<!-- Modal -->
+<div class="modal fade" id="novaPostagem" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">Nova postagem</h5>
+      </div>
+      <div class="modal-body">
+
+        <div class="form-group">
+          <label for="texto">Texto</label>
+          <textarea [(ngModel)]='postagem.conteudoPostagem' class="form-control" name="texto" id="texto"
+            rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="texto">Escolha um tema ou <a data-bs-dismiss="modal" routerLink='/tema'>cadastre um novo</a>:
+          </label>
+          <select class="form-control" name="tema" id="tema" [(ngModel)]='idTema' (change)='findByIdTema()'>
+            <option *ngFor='let item of listaTemas' value="{{item.id}}">{{item.descricao}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success" (click)='cadastrar()' data-dismiss="modal">Publicar</button>
       </div>
     </div>
   </div>
 </div>
-
-<!-- Modal -->
-<div class="modal fade" id="novaPostagem" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title" id="TituloModalCentralizado">Nova postagem</h5>
-          </div>
-          <div class="modal-body">
-
-              <div class="form-group">
-                  <label for="texto">Texto</label>
-                  <textarea [(ngModel)]='postagem.conteudoPostagem' class="form-control" name="texto" id="texto" rows="3"></textarea>
-              </div>
-
-              <div class="form-group">
-                  <label for="texto">Escolha um tema ou <a data-bs-dismiss="modal" routerLink='/tema'>cadastre um novo</a>: </label>
-                  <select class="form-control" name="tema" id="tema" [(ngModel)]='idTema' (change)='findByIdTema()'>
-                      <option *ngFor='let item of listaTemas' value="{{item.id}}">{{item.descricao}}</option>
-                  </select>
-              </div>
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-success" (click)='cadastrar()' data-dismiss="modal">Publicar</button>
-          </div>
-      </div>
-  </div>
-</div>
-

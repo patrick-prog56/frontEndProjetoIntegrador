@@ -4,5 +4,5 @@ export class UserLogin{
     public usuario: string
     public senha: string
     public token: string
-  id: number
+    public id: number
 }

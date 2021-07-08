@@ -1,4 +1,3 @@
-import { TemplateAstPath } from "@angular/compiler"
 import { Tema } from "./Tema"
 import { User } from "./User"
 
