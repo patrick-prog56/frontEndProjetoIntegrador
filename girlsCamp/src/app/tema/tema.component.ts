@@ -12,7 +12,7 @@ import { TemaService } from '../service/tema.service';
 export class TemaComponent implements OnInit {
 
 
-tema: Tema = new Tema()
+  tema: Tema = new Tema()
   listaTemas: Tema[]
 
   constructor(
@@ -24,6 +24,7 @@ tema: Tema = new Tema()
     if(environment.token == ''){
       this.router.navigate(['/entrar'])
     }
+    this.temaService.refreshToken()
     console.log(environment)
     this.findAllTemas()
   }
