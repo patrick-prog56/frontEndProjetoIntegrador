@@ -34,10 +34,12 @@ import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component'
     TemaDeleteComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
-  /* providers: [
-    provide: LocationStrategy,
-    useClass: HashLocationStrategy
-  ],*/
+  providers: [
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

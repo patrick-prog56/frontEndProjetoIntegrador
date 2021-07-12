@@ -1,27 +1,40 @@
 <div class="container-fluid p-0 m-0">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <img src="../../assets/img/logoProjeto.png" alt="Logo" />
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-<nav class="navbar navbar-expand-lg navbar-light">
-    <img src="../../assets/img/logoProjeto.png" alt="Logo">
- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-  
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" href="#">Inicio</a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" routerLink='/tema'>Tema</a>
+        <li *ngIf="auth.adm()" class="nav-item active">
+          <a class="nav-link" routerLink="/tema">Tema</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href='/sobre'>Sobre Nós</a>
+          <a class="nav-link" href="/sobre">Sobre Nós</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Contato</a>
-          </li>
+          <a class="nav-link" href="#">Contato</a>
+        </li>
       </ul>
-      
+      <ul class="navbar-nav ml-auto d-flex align-items-end">
+        <li class="nav-item pl-4">
+          <a (click)="logout()" class="m-0 pr-3 font-weight-bold ftsz text-dark"
+            >Sair <i class="fa fa-sign-out text-dark" aria-hidden="true"></i
+          ></a>
+        </li>
+      </ul>
     </div>
   </nav>
 </div>

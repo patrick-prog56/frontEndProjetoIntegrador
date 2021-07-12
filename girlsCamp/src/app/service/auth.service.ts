@@ -6,38 +6,49 @@ import { User } from '../model/User';
 import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor(private http: HttpClient) {}
 
   token = {
-    headers: new HttpHeaders().set('Authorization',environment.token)
+    headers: new HttpHeaders().set('Authorization', environment.token),
+  };
+
+  entrar(userLogin: UserLogin): Observable<UserLogin> {
+    return this.http.post<UserLogin>(
+      'https://girlscamp.herokuapp.com/usuarios/logar',
+      userLogin
+    );
   }
 
-  entrar(userLogin: UserLogin): Observable <UserLogin> {
-    return this.http.post <UserLogin>('https://girlscamp.herokuapp.com/usuarios/logar',userLogin)
+  cadastrar(user: User): Observable<User> {
+    return this.http.post<User>(
+      'https://girlscamp.herokuapp.com/usuarios/cadastrar',
+      user
+    );
   }
 
-  cadastrar(user: User): Observable <User> {
-    return this.http.post <User>('https://girlscamp.herokuapp.com/usuarios/cadastrar',user)
+  getByIdUser(id: number): Observable<User> {
+    return this.http.get<User>(
+      `https://girlscamp.herokuapp.com/usuarios/${id}`,
+      this.token
+    );
   }
 
-  getByIdUser(id: number): Observable<User>{
-    return this.http.get<User>(`https://girlscamp.herokuapp.com/usuarios/${id}`, this.token)
-  }
-
-  logado(){
-    let ok: boolean = false
+  logado() {
+    let ok: boolean = false;
     if (environment.token != '') {
-      ok=true
-
-      
+      ok = true;
     }
-    return ok
+    return ok;
   }
 
+  adm() {
+    let ok: boolean = false;
+    if (environment.tipoUsuario == 'adm') {
+      ok = true;
+    }
+    return ok;
+  }
 }

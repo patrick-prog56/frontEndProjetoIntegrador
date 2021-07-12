@@ -19,12 +19,15 @@ export class LoginComponent implements OnInit {
   }
 
   entrar() {
+    console.log(environment);
     this.auth.entrar(this.userLogin).subscribe(
       (resp: UserLogin) => {
         this.userLogin = resp;
         environment.token = this.userLogin.token;
         environment.nome = this.userLogin.nome;
         environment.id = this.userLogin.id;
+        environment.tipoUsuario = this.userLogin.tipoUsuario;
+
         this.router.navigate(['/postagem']);
       },
       (erro) => {
