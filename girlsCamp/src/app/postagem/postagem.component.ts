@@ -24,6 +24,7 @@ export class PostagemComponent implements OnInit {
 
   user: User = new User();
   idUser = environment.id;
+  userName = environment.nome;
 
   constructor(
     private router: Router,
