@@ -15,16 +15,15 @@ import { TemaService } from '../service/tema.service';
   styleUrls: ['./postagem.component.css'],
 })
 export class PostagemComponent implements OnInit {
-
   postagem: Postagem = new Postagem();
   listaPostagem: Postagem[];
 
-  tema: Tema = new Tema()
-  listaTemas: Tema[]
-  idTema: number
+  tema: Tema = new Tema();
+  listaTemas: Tema[];
+  idTema: number;
 
-  user: User = new User()
-  idUser = environment.id
+  user: User = new User();
+  idUser = environment.id;
 
   constructor(
     private router: Router,
@@ -40,11 +39,11 @@ export class PostagemComponent implements OnInit {
     }
     console.log(environment);
     this.postagemService.refreshToken();
-    this.temaService.refreshToken()
+    this.temaService.refreshToken();
 
-    this.findAllTema()
+    this.findAllTema();
     this.findAllPostagem();
-    console.log(this.listaTemas)
+    console.log(this.listaTemas);
   }
 
   findAllPostagem() {
@@ -53,34 +52,34 @@ export class PostagemComponent implements OnInit {
     });
   }
 
-  findAllTema(){
+  findAllTema() {
     this.temaService.getAllTema().subscribe((resp: Tema[]) => {
       this.listaTemas = resp;
     });
   }
 
-  findByIdTema(){
+  findByIdTema() {
     this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema) => {
-      this.tema = resp
-    })
+      this.tema = resp;
+    });
   }
 
-  findByIdUser(){
+  findByIdUser() {
     this.authService.getByIdUser(this.idUser).subscribe((resp: User) => {
-      this.user = resp
-    })
+      this.user = resp;
+    });
   }
 
   cadastrar() {
-    this.user.id = this.idUser
-    this.postagem.usuario = this.user
-    this.tema.id = this.idTema
-    this.postagem.tema = this.tema
+    this.user.id = this.idUser;
+    this.postagem.usuario = this.user;
+    this.tema.id = this.idTema;
+    this.postagem.tema = this.tema;
     this.postagemService
       .postPostagem(this.postagem)
       .subscribe((resp: Postagem) => {
         this.postagem = resp;
-        alert('Tema cadastrado com sucesso!!');
+        alert('Postagem realizada com sucesso!!');
         this.findAllPostagem();
         this.postagem = new Postagem();
       });

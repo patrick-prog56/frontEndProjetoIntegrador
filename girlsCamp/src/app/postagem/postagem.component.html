@@ -40,7 +40,7 @@
               alt="Imagem de perfil"
             />
             <div class="card-body">
-              <h5 class="card-title text-center">nomee</h5>
+              <h5 class="card-title text-center">nome</h5>
               <ul class="list-group list-group-flush">
                 <hr />
                 <li class="list-group-item text-muted text-center">
@@ -107,12 +107,7 @@
               </div>
 
               <div class="form-group">
-                <label for="texto"
-                  >Escolha um tema ou
-                  <a data-bs-dismiss="modal" routerLink="/tema"
-                    >cadastre um novo</a
-                  >:
-                </label>
+                <label for="texto">Escolha um tema: </label>
                 <select
                   class="form-control"
                   name="tema"
@@ -138,7 +133,7 @@
                 type="button"
                 class="btn btn-success"
                 (click)="cadastrar()"
-                data-dismiss="modal"
+                data-bs-dismiss="modal"
               >
                 Publicar
               </button>
