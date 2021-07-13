@@ -24,7 +24,7 @@
                 <label for="confirmarSenha"></label>
                 <input [(ngModel)]='user.senha' class="form-control" type="password" name="confirmarSenha" id="confirmarSenha" placeholder="Confirme sua senha">
 
-                <select class="form-control" name="tipoUsuario" id="tipoUsuario" (change)='tipoUser($event)'>
+                <select class="form-control " name="tipoUsuario" id="tipoUsuario" (change)='tipoUser($event)'>
                     <option>Escolha uma opção:</option>
                     <option value="profissional">Profissional da Saúde</option>
                     <option value="normal">Usuário comum</option>
@@ -41,4 +41,3 @@
         </div>
     </div>
 </div>
-<div class="col-md-6" id="img-bg"></div>
