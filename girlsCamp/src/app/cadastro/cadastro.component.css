@@ -4,7 +4,7 @@
 .login{
     background-color: #FFC7D8;
     text-align: center;
-    height: 110vh;
+    height: 135vh;
 }
 .loginImage{
     text-align: center;
@@ -27,7 +27,7 @@ img{
     text-decoration: none;
     color: #8E8E8E;
 }
-#pfSaude{
+#tipoUsuario{
     margin-top: 20px;
     margin-bottom: 20px;
 }
