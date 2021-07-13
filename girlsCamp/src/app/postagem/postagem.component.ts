@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment.prod';
 import { Postagem } from '../model/Postagem';
 import { Tema } from '../model/Tema';
 import { User } from '../model/User';
+import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
 import { PostagemService } from '../service/postagem.service';
 import { TemaService } from '../service/tema.service';
@@ -15,6 +16,10 @@ import { TemaService } from '../service/tema.service';
   styleUrls: ['./postagem.component.css'],
 })
 export class PostagemComponent implements OnInit {
+
+  nome = environment.nome
+  id = environment.id
+
   postagem: Postagem = new Postagem();
   listaPostagem: Postagem[];
 
@@ -26,11 +31,15 @@ export class PostagemComponent implements OnInit {
   idUser = environment.id;
   userName = environment.nome;
 
+  key = 'data'
+  reverse = true
+
   constructor(
     private router: Router,
     private postagemService: PostagemService,
     private temaService: TemaService,
-    private authService: AuthService
+    private authService: AuthService,
+    private alertas: AlertasService
   ) {}
 
   ngOnInit() {
@@ -80,7 +89,7 @@ export class PostagemComponent implements OnInit {
       .postPostagem(this.postagem)
       .subscribe((resp: Postagem) => {
         this.postagem = resp;
-        alert('Postagem realizada com sucesso!!');
+        this.alertas.showAlertSuccess('Postagem realizada com sucesso!!');
         this.findAllPostagem();
         this.postagem = new Postagem();
       });

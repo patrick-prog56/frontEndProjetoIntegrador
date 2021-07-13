@@ -9,11 +9,13 @@ import { AuthService } from '../service/auth.service';
   styleUrls: ['./menu.component.css'],
 })
 export class MenuComponent implements OnInit {
-  constructor(public auth: AuthService, private router: Router) {}
+  constructor(
+    public auth: AuthService, 
+    private router: Router) {}
 
   ngOnInit() {}
 
-  logout() {
+  sair() {
     this.router.navigate(['/login']);
 
     environment.token = '';
