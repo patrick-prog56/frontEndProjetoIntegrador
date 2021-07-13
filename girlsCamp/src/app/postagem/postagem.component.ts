@@ -29,6 +29,7 @@ export class PostagemComponent implements OnInit {
 
   user: User = new User();
   idUser = environment.id;
+  userName = environment.nome;
 
   key = 'data'
   reverse = true

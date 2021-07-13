@@ -32,12 +32,8 @@
           <div class="card" style="width: 18rem">
             <img class="card-img-top" src="../../assets/img/perfil.jpg" alt="Imagem de perfil" />
             <div class="card-body">
-              <h5 class="card-title m-0 font-weight-bold text-center">Olá, {{nome}}</h5>
-              <li class="nav-item pl-3">
-                <a [routerLink]="['/user-edit', id]">
-                    <i class="far fa-edit text-dark fs-16"></i>
-                </a>
-              </li>
+
+              <h5 class="card-title text-center">{{ userName }}</h5>
               <ul class="list-group list-group-flush">
                 <hr />
                 <li class="list-group-item text-muted text-center">
