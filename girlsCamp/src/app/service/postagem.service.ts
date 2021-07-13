@@ -8,6 +8,9 @@ import { Postagem } from '../model/Postagem';
   providedIn: 'root',
 })
 export class PostagemService {
+
+  idUserPost: number
+
   constructor(private http: HttpClient) {}
 
   token = {
@@ -30,6 +33,12 @@ export class PostagemService {
     //template literals => uso de crase no lugar das aspas
     //serve para passar variáveis no endereço com padrão ${'variavel}
     return this.http.get<Postagem>(`https://girlscamp.herokuapp.com/postagens/${id}`,this.token);
+
+  }
+
+  getByConteudoPostagem(titulo: string): Observable<Postagem[]>{
+    return this.http.get<Postagem[]>(`https://girlscamp.herokuapp.com/postagens/titulo/${titulo}`, this.token)
+
   }
 
   postPostagem(postagem: Postagem): Observable<Postagem> {
@@ -45,5 +54,13 @@ export class PostagemService {
     //template literals => uso de crase no lugar das aspas
     //serve para passar variáveis no endereço com padrão ${'variavel}
     return this.http.delete(`https://girlscamp.herokuapp.com/postagens/${id}`,this.token);
+  }
+
+  idLogado(){
+    let ok: boolean = false
+    if(environment.id == this.idUserPost ){
+      ok = true
+    }
+      return ok
   }
 }

@@ -34,3 +34,10 @@
 a{
   cursor: pointer;
 }
+li{
+  list-style: none
+}
+.pesquisa{
+  background-color: #fc618d;
+}
+

@@ -9,7 +9,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Inicio</a>
+          <a class="nav-link" href="#postagem">Inicio</a>
         </li>
         <li *ngIf="auth.adm()" class="nav-item active">
           <a class="nav-link" routerLink="/tema">Tema</a>
@@ -17,13 +17,11 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/sobre">Sobre Nós</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="#">Contato</a>
-        </li>
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item pl-4">
-          <a (click)='sair()' class="m-0 font-weight-bold text-dark fs-16 align-items-end">Sair <i class="fas fa-sign-out-alt text-dark fs-16"></i></a>
+          <a (click)="sair()" class="m-0 font-weight-bold text-dark fs-16 align-items-end">Sair <i
+              class="fas fa-sign-out-alt text-dark fs-16"></i></a>
         </li>
       </ul>
     </div>

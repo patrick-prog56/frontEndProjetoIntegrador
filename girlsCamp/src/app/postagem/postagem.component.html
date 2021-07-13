@@ -1,9 +1,18 @@
 <div class="d-flex justify-content-center flex-column">
+  <div class="row d-flex justify-content-center mt-5 mb-5 pesquisa">
+    <div class="col-md-12">
+        <div class="form-group p-5">
+            <input type="text" class="form-control" id="conteudoPostagem" placeholder="Digite uma palavra chave" [(ngModel)]='palavra' (keyup)='findByConteudoPostagem()'>
+        </div>
+    </div>
+  </div>
   <div class="container">
     <div class="mb-4 mt-4 tamContainer">
-      <div class="row">
-        <div class="col-md-12 trending">
-          <h1>Trending Topics</h1>
+      <div class="row d-flex justify-content-center mt-5 mb-5 pesquisa">
+        <div class="col-md-12">
+            <div class="form-group p-5">
+                <input type="text" class="form-control" id="conteudoPostagem" placeholder="Digite uma palavra chave" [(ngModel)]='palavra' (keyup)='findByConteudoPostagem()'>
+            </div>
         </div>
       </div>
     </div>
@@ -14,14 +23,23 @@
       <div class="col-8 feed">
         <h2>Posts-Forum</h2>
 
-        <div class="card text-center mb-3 mt-3" *ngFor="let item of listaPostagem | orderBy: key: reverse">
-          <div class="card-header">by:{{ item.usuario }}</div>
+        <div class="card text-center mb-3 mt-3" *ngFor="let postagem of listaPostagem | orderBy: key: reverse">
+          <div class="card-header">by: {{ postagem.usuario }}</div>
           <div class="card-body">
-            <h5 class="card-title">{{ item.tema }}</h5>
-            <p class="card-text">{{ item.conteudoPostagem }}</p>
+            <h5 class="card-title">{{ postagem.tema.nomeTema }}</h5>
+            <p class="card-text">{{ postagem.conteudoPostagem }}</p>
+            <!-- <div *ngIf='postagem.idLogado()'> -->
+            <button class="btn btn-outline-dark mr-3" data-bs-toggle="modal" data-bs-target="#editPostagem">
+              Editar
+            </button>
+
+            <button (click)='findByIdPostagem(id)' class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deletePostagem">
+              Apagar
+            </button>
+            <!-- </div> -->
           </div>
           <div class="card-footer text-dark">
-            {{ item.criadoEm | date: "dd/MM/yyyy" }} às {{ item.criadoEm | date: "HH:mm" }}
+            {{ postagem.criadoEm | date: "dd/MM/yyyy" }} às {{ postagem.criadoEm | date: "HH:mm" }}
           </div>
         </div>
       </div>
@@ -32,8 +50,12 @@
           <div class="card" style="width: 18rem">
             <img class="card-img-top" src="../../assets/img/perfil.jpg" alt="Imagem de perfil" />
             <div class="card-body">
-
-              <h5 class="card-title text-center">{{ userName }}</h5>
+              <h5 class="card-title m-0 font-weight-bold text-center">Olá, {{nome}}</h5>
+              <li class="nav-item pl-3">
+                <a [routerLink]="['/user-edit', id]">
+                  <i class="far fa-edit text-dark fs-16"></i>
+                </a>
+              </li>
               <ul class="list-group list-group-flush">
                 <hr />
                 <li class="list-group-item text-muted text-center">
@@ -64,7 +86,7 @@
       </div>
       <!-- /Perfil -->
 
-      <!-- Modal -->
+      <!-- Modal Postagem -->
       <div class="modal fade" id="novaPostagem" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -100,6 +122,75 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Edit Postagem -->
+<div class="modal fade" id="editPostagem" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">
+          Atualizar postagem
+        </h5>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="texto">Texto</label>
+          <textarea [(ngModel)]="postagem.conteudoPostagem" class="form-control" name="texto" id="texto"
+            rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="texto">Escolha um tema: </label>
+          <select class="form-control" name="tema" id="tema" [(ngModel)]="idTema" (change)="findByIdTema()">
+            <option *ngFor="let item of listaTemas" value="{{ item.id }}">
+              {{ item.descricao }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" routerLink='/postagem'>
+          Cancelar
+        </button>
+        <button type="button" class="btn btn-outline-dark" (click)="atualizar()" data-bs-dismiss="modal">
+          Editar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Delete Postagem -->
+<div class="modal fade" id="deletePostagem" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">
+          Deletar postagem
+        </h5>
+      </div>
+      <div class="modal-body">
+
+        <div class="row">
+          <div class="col-md-12">
+            <h4 class="text-center text-dark">Você tem certeza que deseja apagar essa postagem?</h4>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger mr-3" data-bs-dismiss="modal" routerLink='/postagem'>
+          Não
+        </button>
+        <button type="button" class="btn btn-outline-dark" (click)="apagar()" data-bs-dismiss="modal">
+          Sim
+        </button>
       </div>
     </div>
   </div>
