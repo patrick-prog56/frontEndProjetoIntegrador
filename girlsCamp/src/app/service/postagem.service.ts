@@ -33,10 +33,12 @@ export class PostagemService {
     //template literals => uso de crase no lugar das aspas
     //serve para passar variáveis no endereço com padrão ${'variavel}
     return this.http.get<Postagem>(`https://girlscamp.herokuapp.com/postagens/${id}`,this.token);
+
   }
 
   getByConteudoPostagem(titulo: string): Observable<Postagem[]>{
     return this.http.get<Postagem[]>(`https://girlscamp.herokuapp.com/postagens/titulo/${titulo}`, this.token)
+
   }
 
   postPostagem(postagem: Postagem): Observable<Postagem> {

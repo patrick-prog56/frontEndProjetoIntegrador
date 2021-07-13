@@ -13,7 +13,7 @@ import { MenuComponent } from './menu/menu.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { SobreComponent } from './sobre/sobre.component';
 import { ContatoComponent } from './contato/contato.component';
-import { PostagemComponent } from './postagens/postagem.component';
+import { PostagemComponent } from './postagem/postagem.component';
 import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { TemaComponent } from './tema/tema.component';

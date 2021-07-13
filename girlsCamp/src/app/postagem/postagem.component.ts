@@ -33,6 +33,7 @@ export class PostagemComponent implements OnInit {
   idUser = environment.id;
   idUserPost: number
 
+
   key = 'data'
   reverse = true
 
@@ -43,6 +44,7 @@ export class PostagemComponent implements OnInit {
     private authService: AuthService,
     private alertas: AlertasService,
     private route: ActivatedRoute
+
   ) {}
 
   ngOnInit() {
@@ -113,6 +115,7 @@ export class PostagemComponent implements OnInit {
       .subscribe((resp: Postagem) => {
         this.postagem = resp;
         this.alertas.showAlertSuccess('Postagem realizada com sucesso!!');
+
         this.getAll();
         this.postagem = new Postagem();
       });
