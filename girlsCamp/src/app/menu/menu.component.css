@@ -13,8 +13,8 @@
 }
 
 .navbar li{
-    margin-left: 8px;
-    margin-right: 8px;
+    margin-left: 4px;
+    margin-right: 4px;
 
 }
 
@@ -33,7 +33,7 @@
     background-color: #fff;
     display: flex;
     align-items: center;
-    margin: 10px;
+    max-width: 100%;
 }
 .icon{
     color: #7f8c8d;
