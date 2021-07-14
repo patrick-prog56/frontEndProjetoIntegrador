@@ -1,6 +1,7 @@
 .trending {
   background-color: #faabc2;
 }
+
 .card-header {
   background-color: #eeb9c8;
 }
@@ -51,3 +52,25 @@ li{
   padding: 0 5px;
 }
 
+
+@media only screen and (max-width: 1140px) {
+  .login {
+    height: auto;
+  }
+
+  .invert {
+    flex-direction: column-reverse;
+  }
+
+  .card-img-top {
+    display: none;
+  }
+
+  .card-body button {
+    max-width: 140px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+
+}

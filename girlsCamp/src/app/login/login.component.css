@@ -45,3 +45,12 @@ img{
     padding: 0 5px;
 }
 
+@media only screen and (max-width: 320px) {
+    .login {
+      height: auto;
+    }
+
+    img {
+        max-width: 253px;
+    }
+}
