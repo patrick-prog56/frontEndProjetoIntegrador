@@ -4,7 +4,7 @@
 .login{
     background-color: #FFC7D8;
     text-align: center;
-    height: 135vh;
+    height: 129vh;
 }
 .loginImage{
     text-align: center;
@@ -30,5 +30,30 @@ img{
 #tipoUsuario{
     margin-top: 20px;
     margin-bottom: 20px;
+}
+.form input {
+    height: 45px;
+    width: 100%;
+    border: none;
+    background-color: #fff;
+}
+.label-input {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+.label-input-select{
+    height: 45px;
+    width: 743px;
+    border: none;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+.icon{
+    color: #7f8c8d;
+    padding: 0 5px;
 }
 

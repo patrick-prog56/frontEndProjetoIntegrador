@@ -7,23 +7,47 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#postagem">Inicio</a>
-        </li>
-        <li *ngIf="auth.adm()" class="nav-item active">
-          <a class="nav-link" routerLink="/tema">Tema</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/sobre">Sobre Nós</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item pl-4">
-          <a (click)="sair()" class="m-0 font-weight-bold text-dark fs-16 align-items-end">Sair <i
-              class="fas fa-sign-out-alt text-dark fs-16"></i></a>
-        </li>
-      </ul>
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <ul class="navbar-nav mr-auto">
+
+              <li class="nav-item active">
+                <a class="nav-link" href="#postagem">Inicio</a>
+              </li>
+      
+              <li *ngIf="auth.adm()" class="nav-item active">
+                <a class="nav-link" routerLink="/tema">Tema</a>
+              </li>
+      
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/sobre">Sobre Nós</a>
+              </li>
+            </ul>
+            
+            <!-- Pesquisar -->
+            <div class="row d-flex justify-content-center mt-5 mb-5 pesquisa">
+              <div class="col-md-8">
+                  <div class="form-group p-4">
+                    <label class="label-input" for="">
+                      <i class="fas fa-search icon"></i>
+                      <input type="text" class="form-control border-white" id="conteudoPostagem" placeholder="Digite uma palavra chave" [(ngModel)]='palavra' (keyup)='findByConteudoPostagem()'>
+                    </label>
+                  </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-6 d-flex justify-content-end sair">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a (click)="sair()" class="m-0 fs-16" style="text-decoration: none;">Sair <i
+                    class="fas fa-sign-out-alt text-dark fs-16 align-items-end"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </nav>
 </div>
