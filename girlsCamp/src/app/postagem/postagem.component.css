@@ -40,4 +40,14 @@ li{
 .pesquisa{
   background-color: #fc618d;
 }
+.label-input {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+.icon{
+  color: #7f8c8d;
+  padding: 0 5px;
+}
 

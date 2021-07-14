@@ -4,7 +4,7 @@
 .login{
     background-color: #FFC7D8;
     text-align: center;
-    height: 110vh;
+    height: 100vh;
 }
 .loginImage{
     text-align: center;
@@ -14,10 +14,7 @@ img{
     max-width: 300px;
     margin-bottom: -24px;
 }
-.form-group input{
-    max-width: 892px;
-    height: 70px;
-}
+
 .loginBtn{
     color: white;
     background-color: #E96F93;
@@ -30,5 +27,21 @@ img{
 .login a{
     text-decoration: none;
     color: #8E8E8E;
+}
+.form input {
+    height: 45px;
+    width: 100%;
+    border: none;
+    background-color: #fff;
+}
+.label-input {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    margin: 20px;
+}
+.icon{
+    color: #7f8c8d;
+    padding: 0 5px;
 }
 

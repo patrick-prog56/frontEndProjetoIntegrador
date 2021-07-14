@@ -26,6 +26,16 @@
     font-size: 16pt;
     font-weight: bold;
 }
-a{
-    cursor: pointer;
+.sair{
+    padding: 8px;
+}
+.label-input {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+.icon{
+    color: #7f8c8d;
+    padding: 0 5px;
 }
