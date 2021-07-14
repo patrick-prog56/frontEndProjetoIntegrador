@@ -25,27 +25,27 @@ export class TemaService {
   getAllTema(): Observable<Tema[]>{
     //return this.http.get<Tema[]>('https://backendthiagofaccipieri.herokuapp.com/tema',this.token);
 
-    return this.http.get<Tema[]>('https://girlscamp.herokuapp.com/tema', this.token)
+    return this.http.get<Tema[]>('https://girlscampback.herokuapp.com/tema', this.token)
   }
 
   getByIdTema(id: number): Observable<Tema>{
     //template literals => uso de crase no lugar das aspas
     //serve para passar variáveis no endereço com padrão ${'variavel}
-    return this.http.get<Tema>(`https://girlscamp.herokuapp.com/tema/${id}`, this.token)
+    return this.http.get<Tema>(`https://girlscampback.herokuapp.com/tema/${id}`, this.token)
   }
 
   postTema(tema: Tema): Observable<Tema>{
     //return this.http.post<Tema>('https://backendthiagofaccipieri.herokuapp.com/tema', tema, this.token);
-    return this.http.post<Tema>('https://girlscamp.herokuapp.com/tema', tema, this.token)
+    return this.http.post<Tema>('https://girlscampback.herokuapp.com/tema', tema, this.token)
   }
 
   putTema(tema: Tema): Observable<Tema>{
-    return this.http.put<Tema>('https://girlscamp.herokuapp.com/tema', tema, this.token)
+    return this.http.put<Tema>('https://girlscampback.herokuapp.com/tema', tema, this.token)
   }
 
   deleteTema(id: number){
     //template literals => uso de crase no lugar das aspas
     //serve para passar variáveis no endereço com padrão ${'variavel}
-    return this.http.delete(`https://girlscamp.herokuapp.com/tema/${id}`, this.token)
+    return this.http.delete(`https://girlscampback.herokuapp.com/tema/${id}`, this.token)
   }
 }
